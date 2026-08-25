@@ -57,8 +57,8 @@ authorize {
         files
 {% if helpers.exists('OPNsense.freeradius.general.sqlite') and OPNsense.freeradius.general.sqlite == '1' %}
         sql
-{% else %}
-        -sql
+{% if helpers.exists('OPNsense.freeradius.general.mysql') and OPNsense.freeradius.general.mysql == '1' %}
+        sql1
 {% endif %}
 {% if helpers.exists('OPNsense.freeradius.general.ldap_enabled') and OPNsense.freeradius.general.ldap_enabled == '1' %}
         ldap
